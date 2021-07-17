@@ -1,0 +1,21 @@
+{
+    "dataframe": {
+        "linux" : {
+            "0": "23"
+        },
+        "windows" : {
+            "0": "43"
+        },
+        "freebsd" : {
+            "0": "3"
+        }
+    },
+    "orient": "0",
+    "order": [
+        "windows",
+        "linux",
+        "freebsd" 
+    ],
+    "palette": "dark:#992222",
+    "saturation": 0.9
+}

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package pb.v1; 
+
+import "google/protobuf/struct.proto"; 
+
+service Plotter {
+    rpc BarPlot(BarPlotRequest) returns (BarPlotResponse) {} 
+    rpc CircleDiagram(CircleDiagramRequest) returns (CircleDiagramResponse) {}
+}
+
+message BarPlotRequest {
+    google.protobuf.Struct dataframe = 1; 
+    optional string x = 2;
+    optional string y = 3;
+    optional string hue = 4;
+    repeated string order = 5;
+    enum Orient{
+        VERTICAL = 0;
+        HORIZONTAL = 1;
+    } 
+    Orient orient = 6;
+    oneof style {
+        // https://matplotlib.org/stable/gallery/color/named_colors.html
+        string color = 7;
+        // - 'husl' or 'hls'
+        // - 'ch:<cubehelix arguments>'
+        // - 'light:<color>', 'dark:<color>', 'blend:<color>,<color>',
+        string palette = 8;
+    }
+    float saturation = 9; 
+}
+
+message BarPlotResponse {
+    bytes image = 1;
+}
+
+// TODO 
+message CircleDiagramRequest {
+    google.protobuf.Struct dataframe = 1;
+}
+
+message CircleDiagramResponse {
+    bytes image= 1;
+}
