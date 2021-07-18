@@ -1,3 +1,7 @@
+'''
+An implementation of Plotter service
+See proto dir
+'''
 import io
 import json
 
@@ -7,13 +11,16 @@ import matplotlib.pyplot as plt
 
 from google.protobuf.json_format import MessageToJson
 
-import pb 
+import pb
 
 sns.set_style('whitegrid')
 
 class Plotter(pb.plotter_pb2_grpc.PlotterServicer):
+    '''
+    Plotter service
+    '''
     def BarPlot(self, request, context):
-        ax = sns.barplot(data=pd.read_json(
+        sns.barplot(data=pd.read_json(
             MessageToJson(request.dataframe)),
                 x=string_convert(request.x),
                 y=string_convert(request.y),
@@ -24,49 +31,64 @@ class Plotter(pb.plotter_pb2_grpc.PlotterServicer):
                 palette=string_convert(request.palette),
                 saturation=request.saturation,
         )
-        b = io.BytesIO()
-        plt.savefig(b, format=define_format(request.image_format))
-        b.seek(0)
-        return pb.plotter_pb2.BarPlotResponse(image=b.read()) 
+        byte_repr = io.BytesIO()
+        plt.savefig(byte_repr, format=define_format(request.image_format))
+        byte_repr.seek(0)
+        return pb.plotter_pb2.BarPlotResponse(image=byte_repr.read())
 
     def CircleDiagram(self, request, context):
         data = pd.read_json(MessageToJson(request.dataframe))
-        ax = plt.pie(
-                data.iloc[0], 
+        plt.pie(
+                data.iloc[0],
                 labels=data.columns,
                 explode=list_convert(request.explode),
-                radius=request.radius,  
+                radius=request.radius,
                 colors=list_convert(request.colors),
                 shadow=request.shadow,
                 wedgeprops=list_convert(json.loads(MessageToJson(
                     request.wedgeprops)))
         )
-        b = io.BytesIO()
-        plt.savefig(b, format=define_format(request.image_format))
-        b.seek(0)
-        return pb.plotter_pb2.BarPlotResponse(image=b.read())
+        byte_repr = io.BytesIO()
+        plt.savefig(byte_repr, format=define_format(request.image_format))
+        byte_repr.seek(0)
+        return pb.plotter_pb2.BarPlotResponse(image=byte_repr.read())
 
-def orient_convert(o):
-    if int(o) == 0:
+def orient_convert(orient):
+    '''
+    orient converts orient enum to string
+    '''
+    if int(orient) == 0:
         return 'v'
     return 'h'
 
-def define_format(f):
-    if len(f) != 0:
-        return f
+def define_format(form):
+    '''
+    define_format
+    '''
+    if len(form) != 0:
+        return form
     return 'png'
 
-def dict_convert(d):
-    if len(d) == 0:
+def dict_convert(dictionary):
+    '''
+    dict_convert
+    '''
+    if len(dictionary) == 0:
         return None
-    return d
+    return dictionary
 
-def string_convert(s):
-    if len(s) != 0:
-        return s
+def string_convert(string):
+    '''
+    string_convert
+    '''
+    if len(string) != 0:
+        return string
     return None
 
-def list_convert(l):
-    if len(l) == 0:
+def list_convert(elements):
+    '''
+    list_convert
+    '''
+    if len(elements) == 0:
         return None
-    return list(l)
+    return list(elements)

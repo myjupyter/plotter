@@ -1,5 +1,3 @@
-
-
 proto-gen:
 	python -m grpc_tools.protoc \
 		-Iproto/plotter/v1 \
@@ -8,3 +6,6 @@ proto-gen:
 	   	--python_out=pb/ \
 		--grpc_python_out=pb/ \
 		plotter.proto
+
+lint:
+	pylint ./service
