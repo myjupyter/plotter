@@ -29,6 +29,7 @@ message BarPlotRequest {
         string palette = 8;
     }
     float saturation = 9; 
+    string image_format = 10;
 }
 
 message BarPlotResponse {
@@ -38,6 +39,13 @@ message BarPlotResponse {
 // TODO 
 message CircleDiagramRequest {
     google.protobuf.Struct dataframe = 1;
+    repeated float explode = 2;
+    float radius = 3;
+    // husl or hls colors
+    repeated string colors = 4;
+    bool shadow = 5;
+    google.protobuf.Struct wedgeprops = 6; 
+    string image_format = 7;
 }
 
 message CircleDiagramResponse {

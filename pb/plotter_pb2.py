@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rplotter.proto\x12\x05pb.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xa8\x02\n\x0e\x42\x61rPlotRequest\x12*\n\tdataframe\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0e\n\x01x\x18\x02 \x01(\tH\x01\x88\x01\x01\x12\x0e\n\x01y\x18\x03 \x01(\tH\x02\x88\x01\x01\x12\x10\n\x03hue\x18\x04 \x01(\tH\x03\x88\x01\x01\x12\r\n\x05order\x18\x05 \x03(\t\x12,\n\x06orient\x18\x06 \x01(\x0e\x32\x1c.pb.v1.BarPlotRequest.Orient\x12\x0f\n\x05\x63olor\x18\x07 \x01(\tH\x00\x12\x11\n\x07palette\x18\x08 \x01(\tH\x00\x12\x12\n\nsaturation\x18\t \x01(\x02\"&\n\x06Orient\x12\x0c\n\x08VERTICAL\x10\x00\x12\x0e\n\nHORIZONTAL\x10\x01\x42\x07\n\x05styleB\x04\n\x02_xB\x04\n\x02_yB\x06\n\x04_hue\" \n\x0f\x42\x61rPlotResponse\x12\r\n\x05image\x18\x01 \x01(\x0c\"B\n\x14\x43ircleDiagramRequest\x12*\n\tdataframe\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\"&\n\x15\x43ircleDiagramResponse\x12\r\n\x05image\x18\x01 \x01(\x0c\x32\x93\x01\n\x07Plotter\x12:\n\x07\x42\x61rPlot\x12\x15.pb.v1.BarPlotRequest\x1a\x16.pb.v1.BarPlotResponse\"\x00\x12L\n\rCircleDiagram\x12\x1b.pb.v1.CircleDiagramRequest\x1a\x1c.pb.v1.CircleDiagramResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\rplotter.proto\x12\x05pb.v1\x1a\x1cgoogle/protobuf/struct.proto\"\xbe\x02\n\x0e\x42\x61rPlotRequest\x12*\n\tdataframe\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0e\n\x01x\x18\x02 \x01(\tH\x01\x88\x01\x01\x12\x0e\n\x01y\x18\x03 \x01(\tH\x02\x88\x01\x01\x12\x10\n\x03hue\x18\x04 \x01(\tH\x03\x88\x01\x01\x12\r\n\x05order\x18\x05 \x03(\t\x12,\n\x06orient\x18\x06 \x01(\x0e\x32\x1c.pb.v1.BarPlotRequest.Orient\x12\x0f\n\x05\x63olor\x18\x07 \x01(\tH\x00\x12\x11\n\x07palette\x18\x08 \x01(\tH\x00\x12\x12\n\nsaturation\x18\t \x01(\x02\x12\x14\n\x0cimage_format\x18\n \x01(\t\"&\n\x06Orient\x12\x0c\n\x08VERTICAL\x10\x00\x12\x0e\n\nHORIZONTAL\x10\x01\x42\x07\n\x05styleB\x04\n\x02_xB\x04\n\x02_yB\x06\n\x04_hue\" \n\x0f\x42\x61rPlotResponse\x12\r\n\x05image\x18\x01 \x01(\x0c\"\xc6\x01\n\x14\x43ircleDiagramRequest\x12*\n\tdataframe\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0f\n\x07\x65xplode\x18\x02 \x03(\x02\x12\x0e\n\x06radius\x18\x03 \x01(\x02\x12\x0e\n\x06\x63olors\x18\x04 \x03(\t\x12\x0e\n\x06shadow\x18\x05 \x01(\x08\x12+\n\nwedgeprops\x18\x06 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x14\n\x0cimage_format\x18\x07 \x01(\t\"&\n\x15\x43ircleDiagramResponse\x12\r\n\x05image\x18\x01 \x01(\x0c\x32\x93\x01\n\x07Plotter\x12:\n\x07\x42\x61rPlot\x12\x15.pb.v1.BarPlotRequest\x1a\x16.pb.v1.BarPlotResponse\"\x00\x12L\n\rCircleDiagram\x12\x1b.pb.v1.CircleDiagramRequest\x1a\x1c.pb.v1.CircleDiagramResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -46,8 +46,8 @@ _BARPLOTREQUEST_ORIENT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=284,
-  serialized_end=322,
+  serialized_start=306,
+  serialized_end=344,
 )
 _sym_db.RegisterEnumDescriptor(_BARPLOTREQUEST_ORIENT)
 
@@ -123,6 +123,13 @@ _BARPLOTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='image_format', full_name='pb.v1.BarPlotRequest.image_format', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -157,7 +164,7 @@ _BARPLOTREQUEST = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=55,
-  serialized_end=351,
+  serialized_end=373,
 )
 
 
@@ -188,8 +195,8 @@ _BARPLOTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=353,
-  serialized_end=385,
+  serialized_start=375,
+  serialized_end=407,
 )
 
 
@@ -208,6 +215,48 @@ _CIRCLEDIAGRAMREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='explode', full_name='pb.v1.CircleDiagramRequest.explode', index=1,
+      number=2, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='radius', full_name='pb.v1.CircleDiagramRequest.radius', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='colors', full_name='pb.v1.CircleDiagramRequest.colors', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='shadow', full_name='pb.v1.CircleDiagramRequest.shadow', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='wedgeprops', full_name='pb.v1.CircleDiagramRequest.wedgeprops', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='image_format', full_name='pb.v1.CircleDiagramRequest.image_format', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -220,8 +269,8 @@ _CIRCLEDIAGRAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=387,
-  serialized_end=453,
+  serialized_start=410,
+  serialized_end=608,
 )
 
 
@@ -252,8 +301,8 @@ _CIRCLEDIAGRAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=455,
-  serialized_end=493,
+  serialized_start=610,
+  serialized_end=648,
 )
 
 _BARPLOTREQUEST.fields_by_name['dataframe'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -275,6 +324,7 @@ _BARPLOTREQUEST.oneofs_by_name['_hue'].fields.append(
   _BARPLOTREQUEST.fields_by_name['hue'])
 _BARPLOTREQUEST.fields_by_name['hue'].containing_oneof = _BARPLOTREQUEST.oneofs_by_name['_hue']
 _CIRCLEDIAGRAMREQUEST.fields_by_name['dataframe'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_CIRCLEDIAGRAMREQUEST.fields_by_name['wedgeprops'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 DESCRIPTOR.message_types_by_name['BarPlotRequest'] = _BARPLOTREQUEST
 DESCRIPTOR.message_types_by_name['BarPlotResponse'] = _BARPLOTRESPONSE
 DESCRIPTOR.message_types_by_name['CircleDiagramRequest'] = _CIRCLEDIAGRAMREQUEST
@@ -318,8 +368,8 @@ _PLOTTER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=496,
-  serialized_end=643,
+  serialized_start=651,
+  serialized_end=798,
   methods=[
   _descriptor.MethodDescriptor(
     name='BarPlot',

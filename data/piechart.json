@@ -1,0 +1,24 @@
+{
+    "dataframe": {
+        "linux": {
+            "0": "2"
+        },
+        "windows": {
+            "0": "5"
+        },
+        "freebsd": {
+            "0": "1"
+        }
+    },
+    "explode": [
+        0.0, 
+        0.1,
+        0.0
+    ],
+    "radius": 1,
+    "shadow": true,
+    "wedgeprops" : {
+        "width": 0.3,
+        "edgecolor": "w"
+    }
+}
